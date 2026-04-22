@@ -11,7 +11,7 @@ const initialMessages: ChatMessage[] = [
   {
     id: "1",
     role: "assistant",
-    content: "👋 Welcome to LuxAuto! I'm your virtual assistant. Looking for a specific luxury car? I can help you find the perfect match!",
+    content: "👋 Welcome to RealCars! I'm your virtual assistant. Looking for a specific luxury car? I can help you find the perfect match!",
     timestamp: new Date(),
   },
 ];
@@ -108,7 +108,7 @@ export function Chatbot() {
             <div className="flex justify-between items-center p-4 border-b border-white/10">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span className="font-semibold">LuxAuto Assistant</span>
+                <span className="font-semibold">RealCars Assistant</span>
               </div>
               <button onClick={() => setIsOpen(false)} className="p-1 hover:bg-white/10 rounded-lg transition">
                 <X className="w-5 h-5" />

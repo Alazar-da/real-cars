@@ -94,7 +94,7 @@ const handleContactSubmit = async (e: React.FormEvent) => {
             variants={fadeUp}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-100 dark:text-white mb-6">
               Find Your <span className="text-gradient">Dream Car</span> Today
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
