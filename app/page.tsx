@@ -73,7 +73,8 @@ const handleContactSubmit = async (e: React.FormEvent) => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <video
+          <Image src="/cover.jpg" alt="Luxury Car Background" fill className="w-full h-full object-cover" />
+          {/* <video
             autoPlay
             loop
             muted
@@ -82,7 +83,7 @@ const handleContactSubmit = async (e: React.FormEvent) => {
             poster="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1920&auto=format"
           >
             <source src="https://assets.mixkit.co/videos/preview/mixkit-driving-a-luxury-car-on-a-curve-32851-large.mp4" type="video/mp4" />
-          </video>
+          </video> */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 dark:from-black/80 dark:via-black/60 dark:to-black/90" />
         </div>
 
