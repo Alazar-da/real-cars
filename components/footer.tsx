@@ -20,7 +20,7 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <span className="text-2xl font-bold tracking-tight">
-                Lux<span className="text-gradient">Auto</span>
+                REAL<span className="text-gradient">CARS</span>
               </span>
             </div>
             <p className="text-muted-foreground text-sm">
@@ -40,9 +40,9 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-4">Contact</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-center gap-2"><MdPhone className="w-4 h-4" /> +1 (888) 555-0123</li>
-              <li className="flex items-center gap-2"><MdEmail className="w-4 h-4" /> hello@luxauto.com</li>
-              <li className="flex items-center gap-2"><MdLocationOn className="w-4 h-4" /> 123 Luxury Lane, Beverly Hills, CA</li>
+              <li className="flex items-center gap-2"><MdPhone className="w-4 h-4" />+251 911 123 456</li>
+              <li className="flex items-center gap-2"><MdEmail className="w-4 h-4" />yoseph@realcars.com</li>
+              <li className="flex items-center gap-2"><MdLocationOn className="w-4 h-4" /> Addis Ababa, Ethiopia</li>
             </ul>
           </div>
 
@@ -66,7 +66,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground text-sm">
-          <p>&copy; 2024 LuxAuto. All rights reserved. Luxury redefined.</p>
+          <p>&copy; 2026 REALCARS. All rights reserved. Luxury redefined.</p>
         </div>
       </div>
     </footer>

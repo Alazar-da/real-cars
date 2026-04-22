@@ -13,12 +13,55 @@ import {
   FaClock, 
   FaAward, 
   FaArrowRight, 
-  FaPhone 
+  FaPhone, 
+  FaSpinner,
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin
 } from "react-icons/fa";
+import Image from "next/image";
+import { MdEmail, MdLocationOn } from "react-icons/md";
 
 export default function HomePage() {
   const [featuredCars, setFeaturedCars] = useState(cars.filter(c => c.featured).slice(0, 3));
   const [latestCars, setLatestCars] = useState([...cars].reverse().slice(0, 6));
+
+  // Add these state variables at the top of your HomePage component
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  phone: "",
+  subject: "",
+  message: "",
+});
+const [isSubmitting, setIsSubmitting] = useState(false);
+
+// Add the submit handler
+const handleContactSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  
+  // Simulate API call - Replace with your actual endpoint
+  setTimeout(() => {
+    /* toast.success(`Thank you ${formData.name}! We'll contact you shortly.`); */
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+    });
+    setIsSubmitting(false);
+  }, 1500);
+  
+  // TODO: Replace with actual API call
+  // const response = await fetch('/api/contact', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify(formData),
+  // });
+};
 
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -112,7 +155,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4">Why Choose <span className="text-gradient">LuxAuto</span></h2>
+            <h2 className="text-4xl font-bold mb-4">Why Choose <span className="text-gradient">REALCARS</span></h2>
             <p className="text-muted-foreground">Experience the difference of premium service</p>
           </motion.div>
 
@@ -202,27 +245,172 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-amber-600/20 to-black/60" />
-        <div className="relative container mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="glass-card p-12 max-w-3xl mx-auto"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for a Test Drive?</h2>
-            <p className="text-foreground/80 mb-8">Experience the thrill of luxury driving. Schedule your test drive today.</p>
-            <Link
-              href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-amber-500 text-black font-semibold rounded-full hover:bg-amber-400 transition-all hover:scale-105"
-            >
-              Book Now <FaArrowRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
+    // Contact Section Component (Replace the CTA Banner section)
+<section className="py-20 relative overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-br from-amber-600/10 via-black/20 to-black/60" />
+  <div className="relative container mx-auto px-6">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-center mb-12"
+    >
+      <h2 className="text-4xl font-bold mb-4">Get In <span className="text-gradient">Touch</span></h2>
+      <p className="text-muted-foreground max-w-2xl mx-auto">
+        Have questions? Our team is ready to assist you with any inquiries about our luxury vehicles.
+      </p>
+    </motion.div>
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {/* Owner Information Card */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="glass-card p-6 md:p-8"
+      >
+        <div className="text-center mb-6">
+          <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-amber-500/30">
+            <Image
+              src="/hero.jpg"
+              alt="Owner - Michael Anderson"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <h3 className="text-2xl font-bold">yoseph Mulugeta</h3>
+          <p className="text-amber-500 text-sm mb-2">Founder & CEO</p>
+          <p className="text-muted-foreground text-sm">15+ years in luxury automotive industry</p>
         </div>
-      </section>
+
+        <div className="space-y-4">
+          <div className="flex items-center gap-3 text-muted-foreground">
+            <FaPhone className="w-5 h-5 text-amber-500" />
+            <span>+251 911 123 456</span>
+          </div>
+          <div className="flex items-center gap-3 text-muted-foreground">
+            <MdEmail className="w-5 h-5 text-amber-500" />
+            <span>yoseph@realcars.com</span>
+          </div>
+          <div className="flex items-center gap-3 text-muted-foreground">
+            <MdLocationOn className="w-5 h-5 text-amber-500" />
+            <span>Addis Ababa, Ethiopia</span>
+          </div>
+        </div>
+
+        <div className="mt-6 pt-6 border-t border-border">
+          <p className="text-sm text-muted-foreground italic">
+            "My passion is connecting people with their dream cars. Every vehicle in our collection is personally inspected to ensure the highest quality."
+          </p>
+          <div className="flex gap-3 mt-4 justify-center">
+            <a href="#" className="p-2 rounded-full bg-secondary hover:bg-amber-500/20 transition">
+              <FaFacebook className="w-4 h-4" />
+            </a>
+            <a href="#" className="p-2 rounded-full bg-secondary hover:bg-amber-500/20 transition">
+              <FaTwitter className="w-4 h-4" />
+            </a>
+            <a href="#" className="p-2 rounded-full bg-secondary hover:bg-amber-500/20 transition">
+              <FaInstagram className="w-4 h-4" />
+            </a>
+            <a href="#" className="p-2 rounded-full bg-secondary hover:bg-amber-500/20 transition">
+              <FaLinkedin className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Contact Form */}
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="glass-card p-6 md:p-8"
+      >
+        <h3 className="text-xl font-bold mb-4">Send us a Message</h3>
+        <form onSubmit={handleContactSubmit} className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1 text-muted-foreground">Full Name *</label>
+              <input
+                type="text"
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                className="w-full px-3 py-2 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1 text-muted-foreground">Email *</label>
+              <input
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                className="w-full px-3 py-2 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                required
+              />
+            </div>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-1 text-muted-foreground">Phone Number</label>
+            <input
+              type="tel"
+              value={formData.phone}
+              onChange={(e) => setFormData({...formData, phone: e.target.value})}
+              className="w-full px-3 py-2 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-1 text-muted-foreground">Subject *</label>
+            <input
+              value={formData.subject}
+              onChange={(e) => setFormData({...formData, subject: e.target.value})}
+              className="w-full px-3 py-2 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+              required
+            />
+             
+           
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-1 text-muted-foreground">Message *</label>
+            <textarea
+              rows={4}
+              value={formData.message}
+              onChange={(e) => setFormData({...formData, message: e.target.value})}
+              placeholder="Tell us about your interest or ask any questions..."
+              className="w-full px-3 py-2 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"
+              required
+            />
+          </div>
+          
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full py-3 bg-amber-500 text-black font-semibold rounded-lg hover:bg-amber-400 transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          >
+            {isSubmitting ? (
+              <>
+                <FaSpinner className="w-4 h-4 animate-spin" /> Sending...
+              </>
+            ) : (
+              <>
+                Send Message <FaArrowRight className="w-4 h-4" />
+              </>
+            )}
+          </button>
+        </form>
+        
+        <div className="mt-4 pt-4 border-t border-border text-center">
+          <p className="text-xs text-muted-foreground">
+            We'll get back to you within 24 hours. Your privacy is important to us.
+          </p>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
     </>
   );
 }

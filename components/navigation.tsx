@@ -39,7 +39,7 @@ export function Navigation() {
           {/* <FaCar className="w-8 h-8 text-amber-500 group-hover:scale-110 transition-transform" /> */}
           <Image src="/logo.jpg" alt="REAL CARS Logo" width={32} height={32} className="group-hover:scale-110 transition-transform" />
           <span className="text-2xl font-bold tracking-tight">
-            REAL <span className="text-gradient">CARS</span>
+            REAL<span className="text-gradient">CARS</span>
           </span>
         </Link>
 
