@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { FaCar, FaHome, FaList, FaTachometerAlt, FaBars, FaTimes } from "react-icons/fa";
 import { ThemeToggle } from "./theme-toggle";
 import Image from "next/image";
+import path from "path";
 
 const navItems = [
   { href: "/", label: "Home", icon: FaHome },
@@ -31,8 +32,7 @@ export function Navigation() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "glass" : "bg-transparent"
-      }`}
+        isScrolled  ? "glass" : ""}  ${ pathname === "/" ? "bg-transparent " : "dark:bg-transparent bg-black/45"}`}
     >
       <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
