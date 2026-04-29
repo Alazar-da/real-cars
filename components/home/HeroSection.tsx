@@ -46,10 +46,14 @@ export function HeroSection() {
     }
   };
   
-  const floatingAnimation = {
-    y: [0, -10, 0],
-    transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-  };
+ const floatingAnimation = {
+  y: [0, -10, 0],
+  transition: {
+    duration: 3,
+    repeat: Infinity as number,
+    ease: "easeInOut" as const,
+  },
+};
   
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
